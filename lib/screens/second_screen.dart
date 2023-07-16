@@ -12,7 +12,7 @@ class SecondScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     const firstYear = 1900;
     final years = List.generate(
-        DateTime.now().year - firstYear + 1, (index) => 1900 + index);
+        DateTime.now().year - firstYear + 1, (index) => firstYear + index);
     int currentIndex = years.length - 16;
 
     return BaseScreen(
