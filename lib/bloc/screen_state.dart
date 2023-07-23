@@ -1,12 +1,19 @@
-abstract class ScreenState {}
+import 'package:flora/models/data.dart';
 
-class FirstScreenState extends ScreenState {}
+abstract class ScreenState {
+  final Data data;
 
-class SecondScreenState extends ScreenState {}
+  ScreenState(this.data);
+}
+
+class FirstScreenState extends ScreenState {
+  FirstScreenState(super.data);
+}
+
+class SecondScreenState extends ScreenState {
+  SecondScreenState(super.data);
+}
 
 class ThirdScreenState extends ScreenState {
-  final String text;
-  final int year;
-
-  ThirdScreenState(this.text, this.year);
+  ThirdScreenState(super.data);
 }

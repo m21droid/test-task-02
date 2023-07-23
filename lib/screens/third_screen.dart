@@ -1,12 +1,13 @@
+import 'package:flora/models/data.dart';
+import 'package:flora/pages/test_page.dart';
 import 'package:flora/screens/base_screen.dart';
+import 'package:flora/widgets/button.dart';
 import 'package:flutter/material.dart';
 
 class ThirdScreen extends StatelessWidget {
-  final String text;
-  final int year;
+  final Data data;
 
-  const ThirdScreen({Key? key, required this.text, required this.year})
-      : super(key: key);
+  const ThirdScreen({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +18,16 @@ class ThirdScreen extends StatelessWidget {
             const Text('Your data:',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             const SizedBox(height: 24),
-            Text('State: $text', style: const TextStyle(fontSize: 22)),
-            Text('Year of birth: $year', style: const TextStyle(fontSize: 22))
+            Text('State: ${data.text}', style: const TextStyle(fontSize: 22)),
+            Text('Year of birth: ${data.year}',
+                style: const TextStyle(fontSize: 22)),
+            const SizedBox(height: 48),
+            Button(
+                text: 'Finish',
+                onTap: () {
+                  Navigator.of(context)
+                      .pushReplacementNamed(TestPage.routeName);
+                })
           ]),
         ));
   }
